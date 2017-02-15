@@ -1,0 +1,63 @@
+# To change this license header, choose License Headers in Project Properties.
+# To change this template file, choose Tools | Templates
+# and open the template in the editor.
+
+require_relative 'treasure_kind.rb'
+
+class BadConsequence
+  #con esto tenemos el get 
+attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, 
+  :specificVisibleTreasures , :specificHiddenTreasures,:death 
+private_class_method :new 
+
+  @@MAXTREASURES=10;
+  
+#Creo que los parametros tendrian el mismo nombre que en los constructores siguientes.  
+  def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures, 
+someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
+    @text=aText
+    @levels=someLevels
+    @nVisibleTreasures=someVisibleTreasures
+    @nHiddenTreasures=someHiddenTreasures
+    @seath=death
+    @specificVisibleTreasures=someSpecificVisibleTreasures
+    @specificHiddenTreasures=someSpecificHiddenTreasures
+  end
+    
+  #cn el self dice que es un metodo de la clase, como es un constrcutor, solo los constructores son de clase
+   def self.newLevelNumberOfTreasures(t, l, nVisible, nHidden)
+     new(t, l, nVisible, nHidden,Array.new,Array.new,false)  
+   end
+   
+   def self.newLevelSpecificTreasures (t, l, v, h) 
+     new(t, l, 0, 0, v, h,false)
+   end
+    
+   def self.newDeath (t, death)
+     new(t, 0, 0, 0, 0, 0, death)
+   end
+   
+   def to_s
+      put_s"Niveles: #{@levels} \n Tesoros Visibles: #{@nVisibleTreasures} \n  Tesoros Ocutos: #{@nHiddenTreasures} 
+      \n Tesoros Visibles Especificos #{@specificVisibleTreasures} \n Tesoros Ocultos Especificos #{@specificHiddenTreasures}
+     \n Muerte #{@death}"
+      
+    end
+    
+   def isEmpty
+     
+   end
+   
+   def substractVisibleTreasure(t)
+     
+   end
+   
+   def substractHiddenTreasure(t)
+     
+   end
+    
+   def adjustToFitTreasureLists(v, h)
+     
+   end
+  
+end
